@@ -10,6 +10,7 @@ x Arten die karten zu lagern (Box, großer Stapel etc)
 
 Das Projekt:
 - Kamera einlesen /Fotoerkenung
+- Zugriff auf scryfall database
 - Kartboxen bauen
 - Transportmotor
 - 
