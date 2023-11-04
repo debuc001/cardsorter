@@ -1,0 +1,21 @@
+Kartendatenbank füllen
+        Liste an gesuchten Karten einlesen
+        Karten mit Scryfall-Daten abgleichen
+                Englische und Deutsche Bezeichnung merken
+        Kartenliste erstellen, mit folgenden Attributen:
+         Anzahl
+         de Bezeichnung
+         en Bezeichnung
+
+Einzelkarte transportieren
+        Motor starten
+        Motor anhalten sobald Lichtsensor Licht empfängt / Motor anhalten nach bestimmter Zeit
+
+Einzelkarte analysieren
+        Karte mit Kamera einscannen
+        Kartennamen erfassen
+        Kartennamen mit Kartenliste abgleichen
+
+Einzelkarte einsortieren
+        Wenn Kartenname in Kartenliste dann Motor nach rechts
+        Wenn Kartenname nicht in Kartenliste dann Motor nach links
