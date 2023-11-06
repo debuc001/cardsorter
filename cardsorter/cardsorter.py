@@ -9,7 +9,7 @@ scryfall_cardname_object = "cards/named?exact=!"
 
 #Create dataframe from file resources/deckstats_cardlist.txt
 def get_deckstats_card_dataframe():
- with open("resources/deckstats_cardlist.txt") as file:
+ with open("./deckstats_cardlist.txt") as file:
   for item in file:
    #Seperate quantity and cardnames, remove newline
    line_from_deckstats_cardlist = item.split(sep=" ",maxsplit=1)
