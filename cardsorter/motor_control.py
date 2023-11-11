@@ -1,9 +1,13 @@
 import time
+import RPi.GPIO as GPIO
 
 from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC as Board
 
 #select bus 1, set address to 0x10
 board = Board(1, 0x10)
+
+servo_pin = 21
+servo_motor_angle = None
 
 def print_board_status():
  if board.last_operate_status == board.STA_OK:
@@ -48,4 +52,25 @@ def start_dc_motor(duty):
  board.motor_movement([board.M1], board.CW, duty)
 
 def stop_dc_motor():
- board.motor_stop([board.M1]) 
+ board.motor_stop([board.M1])
+
+
+def init_servo_motor():
+ GPIO.setmode(GPIO.BCM)
+ GPIO.setup(servo_pin, GPIO.OUT)
+ servo_motor_angle = GPIO.PWM(servo_pin, 50)
+ servo_motor_angle.start(5)
+
+def set_servo_motor_angle(direction):
+ if direction == left:
+  servo_motor_angle.ChangeDutyCycle(2.5)
+ if direction == middle:
+  servo_motor_angle.ChangeDutyCycle(5)
+ if direction == right:
+  servo_motor_angle.ChangeDutyCycle(7.5)
+ else:
+  print("servo motor wrong direction")
+
+def set_servo_motor_stop():
+ servo_motor_angle.stop()
+ 
