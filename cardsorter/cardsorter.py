@@ -30,7 +30,7 @@ init_dc_motor()
 init_servo_motor()
 set_servo_motor_middle()
 
-while true:
+while True:
  dc_motor_give_card()
  set_servo_motor_left()
  time.sleep(0.2)
