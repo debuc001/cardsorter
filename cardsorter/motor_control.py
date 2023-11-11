@@ -82,3 +82,4 @@ def set_servo_motor_right():
 
 def set_servo_motor_stop():
  servo_motor_angle.stop()
+ GPIO.cleanup()
