@@ -59,7 +59,7 @@ def init_servo_motor():
  GPIO.setup(servo_pin, GPIO.OUT)
  global servo_motor_angle
  servo_motor_angle = GPIO.PWM(servo_pin, 50)
- servo_motor_angle.start(5)
+ servo_motor_angle.start(2.5)
 
 #def set_servo_motor_angle(direction):
 # if direction == left:
@@ -73,6 +73,12 @@ def init_servo_motor():
 
 def set_servo_motor_left():
  servo_motor_angle.ChangeDutyCycle(2.5)
+
+def set_servo_motor_middle():
+ servo_motor_angle.ChangeDutyCycle(5)
+
+def set_servo_motor_right():
+ servo_motor_angle.ChangeDutyCycle(7.5)
 
 def set_servo_motor_stop():
  servo_motor_angle.stop()
