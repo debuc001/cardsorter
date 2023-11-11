@@ -32,7 +32,7 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 #stop_dc_motor()
 
 init_servo_motor()
-set_servo_motor_angle(left)
+set_servo_motor_angle(dircetion = left)
 time.sleep(2)
 set_servo_motor_angle(middle)
 time.sleep(2)
