@@ -72,13 +72,13 @@ def init_servo_motor():
 #  print("servo motor wrong direction")
 
 def set_servo_motor_left():
- servo_motor_angle.ChangeDutyCycle(2.5)
-
-def set_servo_motor_middle():
  servo_motor_angle.ChangeDutyCycle(5)
 
-def set_servo_motor_right():
+def set_servo_motor_middle():
  servo_motor_angle.ChangeDutyCycle(7.5)
+
+def set_servo_motor_right():
+ servo_motor_angle.ChangeDutyCycle(10)
 
 def set_servo_motor_stop():
  servo_motor_angle.stop()
