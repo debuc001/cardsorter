@@ -3,6 +3,8 @@ import requests
 import json
 import numpy as np
 import time
+from gpiozero import AngularServo
+
 
 from dataframe_functions import *
 from image_manipulation import *
@@ -24,7 +26,17 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 #cropped_image = "../tests/testcard_cropped.jpg"
 #text_recognition(cropped_image)
 
-init_dc_motor()
-start_dc_motor(25)
-time.sleep(0.5)
-stop_dc_motor()
+#init_dc_motor()
+#start_dc_motor(25)
+#time.sleep(0.5)
+#stop_dc_motor()
+
+servo = AngularServo(21, min_pulse_width=0.0006, max_pulse_width=0.0023)
+
+while (True):
+    servo.angle = 90
+    sleep(2)
+    servo.angle = 0
+    sleep(2)
+    servo.angle = -90
+    sleep(2)
