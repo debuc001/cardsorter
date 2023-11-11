@@ -3,7 +3,7 @@ import requests
 import json
 import numpy as np
 import time
-from gpiozero import AngularServo
+import RPi.GPIO as GPIO
 
 
 from dataframe_functions import *
@@ -31,12 +31,30 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 #time.sleep(0.5)
 #stop_dc_motor()
 
-servo = AngularServo(21, min_pulse_width=0.0006, max_pulse_width=0.0023)
+servoPIN = 17
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(servoPIN, GPIO.OUT)
 
-while (True):
-    servo.angle = 90
-    time.sleep(2)
-    servo.angle = 0
-    time.sleep(2)
-    servo.angle = -90
-    time.sleep(2)
+p = GPIO.PWM(servoPIN, 50) # GPIO 17 als PWM mit 50Hz
+p.start(2.5) # Initialisierung
+try:
+  while True:
+    p.ChangeDutyCycle(5)
+    time.sleep(0.5)
+    p.ChangeDutyCycle(7.5)
+    time.sleep(0.5)
+    p.ChangeDutyCycle(10)
+    time.sleep(0.5)
+    p.ChangeDutyCycle(12.5)
+    time.sleep(0.5)
+    p.ChangeDutyCycle(10)
+    time.sleep(0.5)
+    p.ChangeDutyCycle(7.5)
+    time.sleep(0.5)
+    p.ChangeDutyCycle(5)
+    time.sleep(0.5)
+    p.ChangeDutyCycle(2.5)
+    time.sleep(0.5)
+except KeyboardInterrupt:
+  p.stop()
+  GPIO.cleanup()
