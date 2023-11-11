@@ -11,6 +11,5 @@ Here is a list of the main parts for this project:
     - I think only the pins 39(Ground), 3(SDA1) and 5(SCL1) are used by this motor driver. The remaining pins can be used freely.
   - 5MP camera for Raspberry Pi
   - lightsensor
-  - Adafruit Micro Servo
-  - Adafruit TT Motor 1:90
+  - Adafruit Micro Servo: https://www.adafruit.com/product/4326 , https://www.towerpro.com.tw/product/sg92r-7/ 
 
