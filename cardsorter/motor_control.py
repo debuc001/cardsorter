@@ -2,6 +2,9 @@ import time
 
 from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC as Board
 
+#select bus 1, set address to 0x10
+board = Board(1, 0x10)
+
 def print_board_status():
  if board.last_operate_status == board.STA_OK:
   print("board status: everything ok")
@@ -21,8 +24,6 @@ def init_dc_motor():
         model = f.read()
  except:
     pass
- #select bus 1, set address to 0x10
- board = Board(1, 0x10)
 
  #check status
  time.sleep(2)
