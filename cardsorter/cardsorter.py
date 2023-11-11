@@ -33,7 +33,7 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 #stop_dc_motor()
 
 
-servoPIN = 8
+servoPIN = 14
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(servoPIN, GPIO.OUT)
 
