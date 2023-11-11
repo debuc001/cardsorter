@@ -6,6 +6,7 @@ import numpy as np
 from dataframe_functions import *
 from image_manipulation import *
 from image_recognition import *
+from motor_control import *
 
 deckstats_card_dataframe = pd.DataFrame( columns = ['QUANTITY','CARDNAME_EN'])
 scryfall_base_api_url = "https://api.scryfall.com/"
@@ -18,9 +19,11 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 
 #print(deckstats_card_dataframe)
 
+#crop_image(image_input, get_image_width(image_input) - 150, 100)
+#cropped_image = "../tests/testcard_cropped.jpg"
+#text_recognition(cropped_image)
 
-crop_image(image_input, get_image_width(image_input) - 150, 100)
-
-cropped_image = "../tests/testcard_cropped.jpg"
-
-text_recognition(cropped_image)
+init_dc_motor()
+start_dc_motor(50)
+sleep(2)
+stop_dc_motor()
