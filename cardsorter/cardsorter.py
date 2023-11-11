@@ -61,7 +61,7 @@ while count < numLoops:
     time.sleep(1)
 
     print("set to 135-deg")
-    setAngle(135)
+    setAngle(180)
     time.sleep(1)
     
     count=count+1
