@@ -32,7 +32,7 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 #time.sleep(0.5)
 #stop_dc_motor()
 
-servo_pin = 14
+servo_pin = 21
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(servo_pin, GPIO.OUT)
 
@@ -43,7 +43,7 @@ def setAngle(angle):
     duty = angle / 18 + 2
     GPIO.output(servo_pin, True)
     pwm.ChangeDutyCycle(duty)
-    sleep(1)
+    time.sleep(1)
     GPIO.output(servo_pin, False)
     pwm.ChangeDutyCycle(duty)
 
@@ -53,16 +53,16 @@ numLoops = 2
 while count < numLoops:
     print("set to 0-deg")
     setAngle(0)
-    sleep(1)
+    time.sleep(1)
 
         
     print("set to 90-deg")
     setAngle(90)
-    sleep(1)
+    time.sleep(1)
 
     print("set to 135-deg")
     setAngle(135)
-    sleep(1)
+    time.sleep(1)
     
     count=count+1
 
