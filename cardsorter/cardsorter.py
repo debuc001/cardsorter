@@ -25,6 +25,6 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 #text_recognition(cropped_image)
 
 init_dc_motor()
-start_dc_motor(50)
-time.sleep(2)
+start_dc_motor(25)
+time.sleep(0.5)
 stop_dc_motor()
