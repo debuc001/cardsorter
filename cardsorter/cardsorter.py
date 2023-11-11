@@ -42,21 +42,15 @@ p.start(2.5) # Initialisierung
 try:
   while True:
     p.ChangeDutyCycle(5)
-    time.sleep(0.5)
+    print("-90")
+    time.sleep(2)
     p.ChangeDutyCycle(7.5)
-    time.sleep(0.5)
+    print("0")
+    time.sleep(2)
     p.ChangeDutyCycle(10)
-    time.sleep(0.5)
-    p.ChangeDutyCycle(12.5)
-    time.sleep(0.5)
-    p.ChangeDutyCycle(10)
-    time.sleep(0.5)
-    p.ChangeDutyCycle(7.5)
-    time.sleep(0.5)
-    p.ChangeDutyCycle(5)
-    time.sleep(0.5)
-    p.ChangeDutyCycle(2.5)
-    time.sleep(0.5)
+    print("+90")
+    time.sleep(2)
+
 except KeyboardInterrupt:
   p.stop()
   GPIO.cleanup()
