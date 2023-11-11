@@ -33,7 +33,7 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 #stop_dc_motor()
 
 servo_pin = 21
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(servo_pin, GPIO.OUT)
 
 pwm=GPIO.PWM(servo_pin, 50)
