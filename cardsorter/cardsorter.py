@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 import json
 import numpy as np
+import time
 
 from dataframe_functions import *
 from image_manipulation import *
@@ -25,5 +26,5 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 
 init_dc_motor()
 start_dc_motor(50)
-sleep(2)
+time.sleep(2)
 stop_dc_motor()
