@@ -7,7 +7,6 @@ from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC a
 board = Board(1, 0x10)
 
 servo_pin = 21
-servo_motor_angle = 0
 
 def print_board_status():
  if board.last_operate_status == board.STA_OK:
@@ -58,6 +57,7 @@ def stop_dc_motor():
 def init_servo_motor():
  GPIO.setmode(GPIO.BCM)
  GPIO.setup(servo_pin, GPIO.OUT)
+ global servo_motor_angle
  servo_motor_angle = GPIO.PWM(servo_pin, 50)
  servo_motor_angle.start(5)
 
