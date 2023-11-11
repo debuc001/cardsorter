@@ -39,7 +39,7 @@ GPIO.setup(servo_pin, GPIO.OUT)
 pwm=GPIO.PWM(servo_pin, 50)
 pwm.start(0)
 
-p = GPIO.PWM(servoPIN, 50) # GPIO 17 als PWM mit 50Hz
+p = GPIO.PWM(servo_pin, 50) # GPIO 17 als PWM mit 50Hz
 p.start(2.5) # Initialisierung
 try:
   while True:
