@@ -1,2 +1,3 @@
 python-pandas
 python-numpy
+tesseract-data-eng

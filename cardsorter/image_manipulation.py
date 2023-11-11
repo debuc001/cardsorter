@@ -1,20 +1,23 @@
 from PIL import Image
 
 #WIP
-def get_image_size(image):
+def get_image_width(image):
  img = open_image(image) 
  w, h = img.size
- return w, h
- print('width: ', w)
- print('height:', h)
+ return w
 
-def crop_image(image):
+def get_image_height(image):
+ img = open_image(image) 
+ w, h = img.size
+ return h
+
+def crop_image(image, width, height):
  img = open_image(image) 
  
- left = 0
- top = 0
- right = 510
- bottom = 292
+ left = 10
+ top = 10
+ right = width
+ bottom = height
   
  img_res = img.crop((left, top, right, bottom)) 
  
