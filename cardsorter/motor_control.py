@@ -48,4 +48,4 @@ def start_dc_motor(duty):
  board.motor_movement([board.M1], board.CW, duty)
 
 def stop_dc_motor():
- board.motor_stop(board.M1) 
+ board.motor_stop([board.M1]) 
