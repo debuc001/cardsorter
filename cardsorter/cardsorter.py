@@ -32,7 +32,6 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 #time.sleep(0.5)
 #stop_dc_motor()
 
-servo = AngularServo(21, min_pulse_width=0.0006, max_pulse_width=0.0023)
 
 servoPIN = 8
 GPIO.setmode(GPIO.BCM)
