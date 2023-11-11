@@ -53,6 +53,12 @@ def start_dc_motor(duty):
 def stop_dc_motor():
  board.motor_stop([board.M1])
 
+def dc_motor_give_card():
+ start_dc_motor(25)
+ time.sleep(0.5)
+ stop_dc_motor()
+
+
 
 def init_servo_motor():
  GPIO.setmode(GPIO.BCM)
@@ -60,16 +66,6 @@ def init_servo_motor():
  global servo_motor_angle
  servo_motor_angle = GPIO.PWM(servo_pin, 50)
  servo_motor_angle.start(2.5)
-
-#def set_servo_motor_angle(direction):
-# if direction == left:
-#  servo_motor_angle.ChangeDutyCycle(2.5)
-# if direction == middle:
-#  servo_motor_angle.ChangeDutyCycle(5)
-# if direction == right:
-#  servo_motor_angle.ChangeDutyCycle(7.5)
-# else:
-#  print("servo motor wrong direction")
 
 def set_servo_motor_left():
  servo_motor_angle.ChangeDutyCycle(5)

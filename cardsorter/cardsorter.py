@@ -26,19 +26,15 @@ deckstats_card_dataframe = preprocessing_dataframe(deckstats_card_dataframe)
 #cropped_image = "../tests/testcard_cropped.jpg"
 #text_recognition(cropped_image)
 
-#init_dc_motor()
-#start_dc_motor(25)
-#time.sleep(0.5)
-#stop_dc_motor()
-
+init_dc_motor()
 init_servo_motor()
-set_servo_motor_left()
-print("left")
-time.sleep(2)
 set_servo_motor_middle()
-print("middle")
-time.sleep(2)
-set_servo_motor_right()
-print("right")
-time.sleep(2)
+
+while true:
+ dc_motor_give_card()
+ set_servo_motor_left()
+ time.sleep(0.2)
+ set_servo_motor_middle()
+
+
 set_servo_motor_stop()
