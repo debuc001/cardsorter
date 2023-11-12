@@ -4,6 +4,7 @@ import json
 import numpy as np
 import time
 
+import RPi.GPIO as GPIO
 
 
 from dataframe_functions import *
@@ -30,11 +31,20 @@ init_dc_motor()
 init_servo_motor()
 set_servo_motor_middle()
 
-while True:
- dc_motor_give_card()
- set_servo_motor_left()
- time.sleep(0.2)
- set_servo_motor_middle()
 
+#while True:
+# dc_motor_give_card()
+# set_servo_motor_left()
+# time.sleep(0.2)
+# set_servo_motor_middle()
 
+set_servo_motor_left()
+time.sleep(5)
+set_servo_motor_right()
+time.sleep(5)
 set_servo_motor_stop()
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17,GPIO.IN)
+while True:
+ print(GPIO.input(17))
