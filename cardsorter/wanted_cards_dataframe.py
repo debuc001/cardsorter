@@ -1,19 +1,22 @@
 import numpy
 import pandas
 import requests
+import logging
+import sys
 
 class WantedCards:
  def __init__(self):
   self.deckstats_card_dataframe = pandas.DataFrame( columns = ['QUANTITY','CARDNAME_EN'])
 
  #Fill dataframe from file resources/deckstats_cardlist.txt
-  with open("./deckstats_cardlist.txt") as file:
+  with open(sys.path + "./deckstats_cardlist.txt") as file:
    for item in file:
     #Seperate quantity and cardnames, remove newline
     line_from_deckstats_cardlist = item.split(sep=" ",maxsplit=1)
     line_from_deckstats_cardlist = [r.strip() for r in line_from_deckstats_cardlist]
     #Add each modified line to dataframe
     self.deckstats_card_dataframe.loc[len(self.deckstats_card_dataframe)] = line_from_deckstats_cardlist
+  logging.info('Dataframe for wanted cards is filled')
 
   #Remove everything after // -> only one name of double sided card is left in dataframe
   for ind in self.deckstats_card_dataframe.index:
@@ -25,6 +28,7 @@ class WantedCards:
    cardname = self.deckstats_card_dataframe.iat[ind,1]  
    head, sep, tail = cardname.partition('#')
    self.deckstats_card_dataframe.iat[ind,1] = head
+  logging.info('Dataframe for wanted cards is cleaned')
 
  def print_dataframe_wanted_cards(self):
   print(self.deckstats_card_dataframe)
