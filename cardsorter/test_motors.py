@@ -1,8 +1,3 @@
-import sys
- 
-# setting path
-sys.path.append('..')
-
 from motor_control import *
 
 dc_motor_init()

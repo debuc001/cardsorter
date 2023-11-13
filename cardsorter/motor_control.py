@@ -20,7 +20,7 @@ def print_board_status():
  elif board.last_operate_status == board.STA_ERR_SOFT_VERSION:
   print("board status: unsupport board framware version")
 
-def init_dc_motor():
+def dc_motor_init():
  #select motor driver
  try:
     with open('/proc/device-tree/model', 'r') as f:
@@ -47,10 +47,10 @@ def init_dc_motor():
  # Set DC motor pwm frequency to 1000HZ
  board.set_moter_pwm_frequency(1000)
 
-def start_dc_motor(duty):
+def dc_motor_start(duty):
  board.motor_movement([board.M1], board.CW, duty)
 
-def stop_dc_motor():
+def dc_motor_stop():
  board.motor_stop([board.M1])
 
 def dc_motor_give_card():
@@ -60,22 +60,22 @@ def dc_motor_give_card():
 
 
 
-def init_servo_motor():
+def servo_motor_init():
  GPIO.setmode(GPIO.BCM)
  GPIO.setup(servo_pin, GPIO.OUT)
  global servo_motor_angle
  servo_motor_angle = GPIO.PWM(servo_pin, 50)
- servo_motor_angle.start(2.5)
+ servo_motor_angle.start(5)
 
-def set_servo_motor_left():
+def servo_motor_set_left():
  servo_motor_angle.ChangeDutyCycle(5)
 
-def set_servo_motor_middle():
+def servo_motor_set_middle():
  servo_motor_angle.ChangeDutyCycle(7.5)
 
-def set_servo_motor_right():
+def servo_motor_set_right():
  servo_motor_angle.ChangeDutyCycle(10)
 
-def set_servo_motor_stop():
+def servo_motor_stop():
  servo_motor_angle.stop()
  GPIO.cleanup()

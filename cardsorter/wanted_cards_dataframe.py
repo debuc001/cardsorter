@@ -2,14 +2,13 @@ import numpy
 import pandas
 import requests
 import logging
-import sys
 
 class WantedCards:
  def __init__(self):
   self.deckstats_card_dataframe = pandas.DataFrame( columns = ['QUANTITY','CARDNAME_EN'])
 
  #Fill dataframe from file resources/deckstats_cardlist.txt
-  with open(sys.path + "./deckstats_cardlist.txt") as file:
+  with open("./deckstats_cardlist.txt") as file:
    for item in file:
     #Seperate quantity and cardnames, remove newline
     line_from_deckstats_cardlist = item.split(sep=" ",maxsplit=1)
