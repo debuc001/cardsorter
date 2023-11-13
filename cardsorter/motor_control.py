@@ -1,6 +1,8 @@
 import time
 import RPi.GPIO as GPIO
 import logging
+import pigpio
+
 
 from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC as Board
 
@@ -62,21 +64,35 @@ def dc_motor_give_card():
 
 
 def servo_motor_init():
- GPIO.setmode(GPIO.BCM)
- GPIO.setup(servo_pin, GPIO.OUT)
- global servo_motor_angle
- servo_motor_angle = GPIO.PWM(servo_pin, 50)
- servo_motor_angle.start(5)
+ #GPIO.setmode(GPIO.BCM)
+ #GPIO.setup(servo_pin, GPIO.OUT)
+ #global servo_motor
+ #servo_motor = GPIO.PWM(servo_pin, 50)
+ #servo_motor.start(5)
+ global servo_pwm
+ servo_pwm = pigpio.pi()
+ servo_pwm.set_mode(servo_pin, pigpio.OUTPUT)
+ pwm.set_PWM_frequency( servo_pin, 50 )
 
-def servo_motor_set_left():
- servo_motor_angle.ChangeDutyCycle(5)
+def servo_motor_set_angle(angle):
+ angle = angle
+ if angle == left:
+  pwm.set_servo_pulsewidth( servo_pin, 1000 ) 
+ if angle == middle:
+  pwm.set_servo_pulsewidth( servo_pin, 1500 )
+ if angle == right:
+  pwm.set_servo_pulsewidth( servo_pin, 2000 )
 
-def servo_motor_set_middle():
- servo_motor_angle.ChangeDutyCycle(7.5)
 
-def servo_motor_set_right():
- servo_motor_angle.ChangeDutyCycle(10)
+#def servo_motor_set_left():
+# servo_motor_angle.ChangeDutyCycle(5)
 
-def servo_motor_stop():
- servo_motor_angle.stop()
- GPIO.cleanup()
+#def servo_motor_set_middle():
+# servo_motor_angle.ChangeDutyCycle(7.5)
+
+#def servo_motor_set_right():
+# servo_motor_angle.ChangeDutyCycle(10)
+
+#def servo_motor_stop():
+# servo_motor_angle.stop()
+# GPIO.cleanup()
