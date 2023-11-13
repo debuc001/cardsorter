@@ -11,7 +11,7 @@ light_sensor = GPIO.input(light_sensor_pin)
 # print()
 
 def card_transport_next():
- dc_motor_start()
+ dc_motor_start(50)
  while light_sensor:
   print("TEST: light sensor true : " + light_sensor)
  dc_motor_stop()
