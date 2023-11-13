@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import logging
 import pigpio
 from gpiozero import Servo
+from gpiozero.pins.pigpio import PiGPIOFactory
 
 from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC as Board
 
@@ -10,7 +11,9 @@ from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC a
 board = Board(1, 0x10)
 
 #servo_pin = 21
-servo = Servo(21)
+servo_pin = 21
+factory = PiGPIOFactory()
+servo = Servo(servo_pin, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
 
 def print_board_status():
  if board.last_operate_status == board.STA_OK:
