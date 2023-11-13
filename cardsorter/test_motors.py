@@ -1,7 +1,7 @@
 from motor_control import *
 
 dc_motor_init()
-servo_motor_init()
+#servo_motor_init()
 '''
 logging.info('Start dc motor test')
 dc_motor_start(50)
