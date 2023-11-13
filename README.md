@@ -13,3 +13,8 @@ Here is a list of the main parts for this project:
   - lightsensor
   - Adafruit Micro Servo: https://www.adafruit.com/product/4326 , https://www.towerpro.com.tw/product/sg92r-7/ 
 
+--INSTRUCTIONS--
+For the servo we need pigpio to run. You can enable and start it with:
+sudo systemctl enable pigpiod
+sudo systemctl start pigpiod
+
