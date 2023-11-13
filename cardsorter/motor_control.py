@@ -2,14 +2,15 @@ import time
 import RPi.GPIO as GPIO
 import logging
 import pigpio
-
+from import gpiozero import Servo
 
 from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC as Board
 
 #select bus 1, set address to 0x10
 board = Board(1, 0x10)
 
-servo_pin = 21
+#servo_pin = 21
+servo = Servo(21)
 
 def print_board_status():
  if board.last_operate_status == board.STA_OK:
@@ -77,11 +78,11 @@ def servo_motor_init():
 def servo_motor_set_angle(angle):
  angle = angle
  if angle == left:
-  pwm.set_servo_pulsewidth( servo_pin, 1000 ) 
+  servo.min()
  if angle == middle:
-  pwm.set_servo_pulsewidth( servo_pin, 1500 )
+  servo.mid()
  if angle == right:
-  pwm.set_servo_pulsewidth( servo_pin, 2000 )
+  servo.max()
 
 
 #def servo_motor_set_left():
