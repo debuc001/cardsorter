@@ -10,7 +10,7 @@ from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC a
 #select bus 1, set address to 0x10
 board = Board(1, 0x10)
 
-#servo_pin = 21
+#Init servo motor
 servo_pin = 21
 factory = PiGPIOFactory()
 servo = Servo(servo_pin, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
@@ -45,12 +45,9 @@ def dc_motor_init():
 
  # Set selected DC motor encoder enable
  board.set_encoder_enable(board.ALL)   
- # Set selected DC motor encoder disable:              
- # board.set_encoder_disable(board.ALL)
-
+ # Set selected DC motor encoder disable: board.set_encoder_disable(board.ALL)
  # Set selected DC motor encoder reduction ratio, test motor reduction ratio is 43.8
  board.set_encoder_reduction_ratio(board.ALL, 43)
-
  # Set DC motor pwm frequency to 1000HZ
  board.set_moter_pwm_frequency(1000)
 
@@ -66,18 +63,6 @@ def dc_motor_give_card():
  stop_dc_motor()
 
 
-
-def servo_motor_init():
- #GPIO.setmode(GPIO.BCM)
- #GPIO.setup(servo_pin, GPIO.OUT)
- #global servo_motor
- #servo_motor = GPIO.PWM(servo_pin, 50)
- #servo_motor.start(5)
- global servo_pwm
- servo_pwm = pigpio.pi()
- servo_pwm.set_mode(servo_pin, pigpio.OUTPUT)
- pwm.set_PWM_frequency( servo_pin, 50 )
-
 def servo_motor_set_angle(angle):
  angle = angle
  if angle == "left":
@@ -86,17 +71,3 @@ def servo_motor_set_angle(angle):
   servo.mid()
  if angle == "right":
   servo.max()
-
-
-#def servo_motor_set_left():
-# servo_motor_angle.ChangeDutyCycle(5)
-
-#def servo_motor_set_middle():
-# servo_motor_angle.ChangeDutyCycle(7.5)
-
-#def servo_motor_set_right():
-# servo_motor_angle.ChangeDutyCycle(10)
-
-#def servo_motor_stop():
-# servo_motor_angle.stop()
-# GPIO.cleanup()
