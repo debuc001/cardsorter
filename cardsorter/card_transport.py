@@ -20,8 +20,8 @@ def card_transport_next():
  card_is_wanted = True
  if card_is_wanted:
   servo_motor_set_angle("left")
- else card_is_wanted:
+ else:
   servo_motor_set_angle("right")
  sleep(2)
  servo_motor_set_angle("mid")
- 
+
