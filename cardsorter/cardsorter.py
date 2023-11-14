@@ -5,10 +5,6 @@ import numpy as np
 import time
 import logging
 
-from wanted_cards_dataframe import *
-from image_manipulation import *
-from image_recognition import *
-#from motor_control import *
 from card_transport import *
 
 #crop_image(image_input, get_image_width(image_input) - 150, 100)
