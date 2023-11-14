@@ -15,5 +15,4 @@ from card_transport import *
 #cropped_image = "../tests/testcard_cropped.jpg"
 #text_recognition(cropped_image)
 
-while True:
- card_transport_next()
+card_transport_next()

@@ -67,7 +67,7 @@ def servo_motor_set_angle(angle):
  angle = angle
  if angle == "left":
   servo.min()
- if angle == "middle":
+ if angle == "mid":
   servo.mid()
  if angle == "right":
   servo.max()
