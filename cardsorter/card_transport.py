@@ -18,7 +18,7 @@ def card_transport_next():
  stop_dc_motor = True
  dc_motor_start(50)
  while stop_dc_motor:
-  if light_sensor():
+  if not light_sensor():
    stop_dc_motor = False
    dc_motor_stop()
 
