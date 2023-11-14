@@ -11,19 +11,16 @@ light_sensor = GPIO.input(light_sensor_pin)
 # print()
 
 def light_sensor():
- return GPIO.input(light_sensor_pin)
+ return not GPIO.input(light_sensor_pin)
 
 def card_transport_next():
  #give next card and stop dc motor when lightsensor is blocked
  stop_dc_motor = True
  dc_motor_start(50)
- print("1")
  while stop_dc_motor:
-  print("2")
   if not light_sensor():
    stop_dc_motor = False
    dc_motor_stop()
-   print("3")
 
  #decide if card is wanted or not
  #WIP: ONLY FOR TEST:
