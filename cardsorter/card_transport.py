@@ -25,7 +25,7 @@ def card_transport_next():
  #decide if card is wanted or not
  #WIP: ONLY FOR TEST:
  card_is_wanted = True
-  if card_is_wanted == True:
+  if True:
    servo_motor_set_angle("left")
   else:
    servo_motor_set_angle("right")
