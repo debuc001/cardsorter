@@ -16,7 +16,7 @@ def light_sensor():
 def card_transport_next():
  #give next card and stop dc motor when lightsensor is blocked
  stop_dc_motor = True
- dc_motor_start(50)
+ dc_motor_start(30)
  while stop_dc_motor:
   if not light_sensor():
    stop_dc_motor = False
