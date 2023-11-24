@@ -11,4 +11,12 @@ from card_transport import *
 #cropped_image = "../tests/testcard_cropped.jpg"
 #text_recognition(cropped_image)
 
-card_transport_next()
+#card_transport_next()
+
+from picamera import PiCamera
+
+camera.start_preview()
+sleep(5)
+camera.stop_preview()
+
+camera.capture('./tmp/image.jpg')
