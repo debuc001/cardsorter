@@ -15,8 +15,8 @@ import logging
 
 from picamera import PiCamera
 
-camera.start_preview()
-sleep(5)
-camera.stop_preview()
+#camera.start_preview()
+sleep(2)
+#camera.stop_preview()
 
 camera.capture('./tmp/image.jpg')
