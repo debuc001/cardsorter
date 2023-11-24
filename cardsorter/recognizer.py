@@ -18,6 +18,9 @@ import json
 import pickle
 import platform
 import sys
+import time
+
+from picamera2 import Picamera2, Preview
 
 import tensorflow as tf
 import tensorflow.keras.applications as applications
@@ -46,29 +49,26 @@ print('Initializing recognizer.')
 recognizer = card_recognizer.Recognizer(catalog)
 
 print('Creating camera.')
-if platform.system() == 'Windows':
-    # On Windows, the DirectShow interface seems to be faster and
-    # more reliable
-    print('Using DirectShow')
-    vc = cv2.VideoCapture(config.camera_id, cv2.CAP_DSHOW)
-else:
-    vc = cv2.VideoCapture(config.camera_id)
-vc.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-vc.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-
-print('Opening camera.')
-if not vc.isOpened():
-    print('Failed to open camera.')
-    sys.exit()
+picam = Picamera2()
+config = picam.create_preview_configuration()
+picam.configure(config)
 
 previous_card_id = ''
-while True:
-    rval, frame = vc.read()
-    if not rval:
-        print('Error code on frame capture.')
-        break
 
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+print('capture image')
+picam.start_preview(Preview.QTGL)
+picam.start()
+time.sleep(2)
+picam.capture_file("./tmp/test-python.jpg")
+picam.close()
+
+image = cv2.cvtColor("./tmp/test-python.jpg", cv2.COLOR_BGR2RGB)
+
+cv2.imshow("test-python", image)
+cv2.waitKey(0)
+
+
+'''
     image = tfa.image.transform(frame,
                                 transform_vector,
                                 interpolation='bilinear',
@@ -92,4 +92,4 @@ while True:
             print(f'{distance} : {card_name} [{set_code}] : {card_id}')
 
 print('Shutting down.')
-vc.release()
+'''
