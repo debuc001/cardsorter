@@ -13,10 +13,17 @@ import logging
 
 #card_transport_next()
 
-from picamera import PiCamera
+from picamera2 import Picamera2, Preview
 
-#camera.start_preview()
-sleep(2)
-#camera.stop_preview()
+picam = Picamera2()
 
-camera.capture('./tmp/image.jpg')
+config = picam.create_preview_configuration()
+picam.configure(config)
+
+picam.start_preview(Preview.QTGL)
+
+picam.start()
+time.sleep(2)
+picam.capture_file("./tmp/test-python.jpg")
+
+picam.close()
