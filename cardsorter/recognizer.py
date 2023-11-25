@@ -32,9 +32,8 @@ import card_recognizer
 import common
 
 config = common.load_config()
-#transform_vector = transform.keypoints_to_transform(640, 448,
-#                                                    *config.camera_keypoints)
-transform_vector = transform.keypoints_to_transform(640, 448, 2, 4, 2592, 4608)
+transform_vector = transform.keypoints_to_transform(640, 448,
+                                                    *config.camera_keypoints)
 
 print('Loading catalog')
 json_file = open("card_catalog.json", "r", encoding="utf-8")
