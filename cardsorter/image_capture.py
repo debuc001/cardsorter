@@ -3,7 +3,7 @@ import time
 from picamera2 import Picamera2, Preview
 
 class image_capture:
- def __init(self):
+ def __init__(self):
   self.picam = Picamera2()
   self.config = self.picam.create_preview_configuration()
   self.picam.configure(self.config)
