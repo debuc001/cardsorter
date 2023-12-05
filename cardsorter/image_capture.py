@@ -7,7 +7,7 @@ class image_capture:
   self.picam = Picamera2()
   self.config = self.picam.create_preview_configuration()
   self.picam.configure(self.config)
-  self.picam.start_preview(Preview.QTGL)
+  #self.picam.start_preview(Preview.QTGL)
 
  def take_picture(self):
   self.picam.start()
