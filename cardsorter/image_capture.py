@@ -2,14 +2,15 @@ import time
 
 from picamera2 import Picamera2, Preview
 
-def image_capture():
- picam = Picamera2()
- config = picam.create_preview_configuration()
- picam.configure(config)
- #picam.start_preview(Preview.QTGL)
+class image_capture:
+ def __init(self):
+  self.picam = Picamera2()
+  self.config = self.picam.create_preview_configuration()
+  self.picam.configure(self.config)
+  self.picam.start_preview(Preview.QTGL)
 
- def take_picture():
-  picam.start()
+ def take_picture(self):
+  self.picam.start()
   time.sleep(2)
-  picam.capture_file("./tmp/card_tmp.jpg")
-  picam.close()
+  self.picam.capture_file("./tmp/card_tmp.jpg")
+  self.picam.close()
