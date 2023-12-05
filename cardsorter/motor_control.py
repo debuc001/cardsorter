@@ -58,9 +58,9 @@ def dc_motor_stop():
  board.motor_stop([board.M1])
 
 def dc_motor_give_card():
- start_dc_motor(25)
+ dc_motor_start(25)
  time.sleep(0.5)
- stop_dc_motor()
+ dc_motor_stop()
 
 
 def servo_motor_set_angle(angle):
