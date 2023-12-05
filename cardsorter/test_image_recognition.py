@@ -1,4 +1,4 @@
 from image_recognition import *
 
-recognition = image_recognition()
-image_recognition.compare("./tmp/card_tmp.jpg")
+recognizer = image_recognition()
+print( recognizer.recognize("./tmp/card_tmp.jpg") )
