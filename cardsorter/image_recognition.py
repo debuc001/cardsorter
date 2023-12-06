@@ -10,8 +10,8 @@ class ImageRecognition:
   self.azure = Azure()
   self.rec = MagicRecognition(file_all_cards="all_cards.txt", file_keywords="Keywords.json")
 
- def recognize(self,image):
-  box_texts = self.azure.image_to_box_texts(image)
+ def recognize(self):
+  box_texts = self.azure.image_to_box_texts("./tmp/card_tmp.jpg")
   deck = self.rec.box_texts_to_deck(box_texts)
   for c, k in deck:
    print(c, k)
