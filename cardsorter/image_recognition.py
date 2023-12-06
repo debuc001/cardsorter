@@ -13,6 +13,7 @@ class ImageRecognition:
  def recognize(self):
   box_texts = self.azure.image_to_box_texts("./tmp/card_tmp.jpg")
   deck = self.rec.box_texts_to_deck(box_texts)
+  global c
   for c, k in deck:
    print(c, k)
   return c

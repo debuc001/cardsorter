@@ -31,7 +31,6 @@ class WantedCards:
 
  def print_dataframe_wanted_cards(self):
   print(self.deckstats_card_dataframe)
-
   
 #
 #Add support for german cards.
