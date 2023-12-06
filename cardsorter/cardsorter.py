@@ -9,8 +9,11 @@ wanted_cards.print_dataframe_wanted_cards()
 camera = image_capture()
 
 
-while True:
- card_transport_next()
- camera.take_picture()
- #compare cards
 
+card_transport_next()
+camera.take_picture()
+#compare cards
+#for ind in wanted_cards.index:
+# cardname = wanted_cards.iat[ind,1]
+# print(cardname)
+print(wanted_cards.return_wanted_cards)
