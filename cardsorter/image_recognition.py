@@ -2,7 +2,7 @@ from mtgscan.text import MagicRecognition
 from mtgscan.ocr.azure import Azure
 import os
 
-class image_recognition:
+class ImageRecognition:
  def __init__(self):
   os.environ['AZURE_VISION_ENDPOINT'] = 'https://mtgscan-cvr.cognitiveservices.azure.com/'
   os.environ['AZURE_VISION_KEY'] = '1dee066d4686498596110672904ec81a'
