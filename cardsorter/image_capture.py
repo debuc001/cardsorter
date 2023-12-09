@@ -12,8 +12,8 @@ class image_capture:
 
  def trigger_autofocus(self):
   self.picam.start(show_preview=True)
-  success = self.picam.autofocus_cycle()
-  while success:
+  #success = self.picam.autofocus_cycle()
+  while self.picam.autofocus_cycle():
    time.sleep(0.1)
 
  def take_picture(self):
