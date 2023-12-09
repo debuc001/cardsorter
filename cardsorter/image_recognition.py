@@ -1,6 +1,7 @@
 from mtgscan.text import MagicRecognition
 from mtgscan.ocr.azure import Azure
 import os
+import logging
 
 class ImageRecognition:
  def __init__(self):
@@ -13,7 +14,11 @@ class ImageRecognition:
  def recognize(self):
   box_texts = self.azure.image_to_box_texts("./tmp/card_tmp.jpg")
   deck = self.rec.box_texts_to_deck(box_texts)
-  global c
+  #This is a temporary workaround, because I don't know how to get var c
+  c = None
   for c, k in deck:
-   print(c, k)
+   #print(c, k)
+   logging.info('Card recognized: ' + c)
+  if c == None:
+   logging.info('No card recognized')
   return c
