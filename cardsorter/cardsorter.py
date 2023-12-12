@@ -14,8 +14,8 @@ img_recog = ImageRecognition()
 
 
 #card_transport_next()
-camera.take_picture()
 camera.focus_maual()
+camera.take_picture()
 #compare cards
 card_captured = img_recog.recognize()
 is_card_wanted = False
