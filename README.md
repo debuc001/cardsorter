@@ -18,3 +18,4 @@ For the servo we need pigpio to run. You can enable and start it with:
 sudo systemctl enable pigpiod
 sudo systemctl start pigpiod
 
+Checkout the docu for picamera2: https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf

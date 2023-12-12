@@ -1,5 +1,5 @@
 from image_capture import *
 
 camera = image_capture()
-camera.trigger_autofocus()
+camera.focus_maual()
 camera.take_picture()
