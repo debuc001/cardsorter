@@ -1,20 +1,20 @@
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
-#from card_transport import *
-from image_capture import *
-from image_recognition import *
-#from motor_control import *
-from wanted_cards_dataframe import *
+import card_transport as ct
+import image_capture as ic
+import image_recognition as ir
+import wanted_cards_dataframe as wcdf
 
-wanted_cards = WantedCards()
-camera = image_capture()
-img_recog = ImageRecognition()
+wanted_cards = wcdf.WantedCards()
+camera = ic.image_capture()
+img_recog = ir.ImageRecognition()
 
-
-#card_transport_next()
 camera.focus_maual()
+
+
+ct.card_transport_next()
 camera.take_picture()
 #compare cards
 card_captured = img_recog.recognize()
