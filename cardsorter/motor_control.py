@@ -66,10 +66,10 @@ def dc_motor_give_card():
 def servo_motor_set_angle(angle):
  angle = angle
  if angle == "left":
-  servo..set_servo_pulsewidth(servo_pin, 1000)
+  servo.set_servo_pulsewidth(servo_pin, 1000)
  if angle == "mid":
-  servo..set_servo_pulsewidth(servo_pin, 1500)
+  servo.set_servo_pulsewidth(servo_pin, 1500)
  if angle == "right":
-  servo..set_servo_pulsewidth(servo_pin, 2000)
+  servo.set_servo_pulsewidth(servo_pin, 2000)
  if angle == "off":
-  servo..set_servo_pulsewidth(servo_pin, 0)
+  servo.set_servo_pulsewidth(servo_pin, 0)
