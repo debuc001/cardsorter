@@ -11,9 +11,9 @@ from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC a
 board = Board(1, 0x10)
 
 #Init servo motor
+servo = pigpio.pi()
 servo_pin = 21
-factory = PiGPIOFactory()
-servo = Servo(servo_pin, min_pulse_width=1/1000, max_pulse_width=2/1000, pin_factory=factory)
+
 
 def print_board_status():
  if board.last_operate_status == board.STA_OK:
@@ -66,8 +66,10 @@ def dc_motor_give_card():
 def servo_motor_set_angle(angle):
  angle = angle
  if angle == "left":
-  servo.min()
+  servo..set_servo_pulsewidth(servo_pin, 1000)
  if angle == "mid":
-  servo.mid()
+  servo..set_servo_pulsewidth(servo_pin, 1500)
  if angle == "right":
-  servo.max()
+  servo..set_servo_pulsewidth(servo_pin, 2000)
+ if angle == "off":
+  servo..set_servo_pulsewidth(servo_pin, 0)
