@@ -1,4 +1,5 @@
 from motor_control import *
+logging.basicConfig(level=logging.INFO)
 
 dc_motor_init()
 
