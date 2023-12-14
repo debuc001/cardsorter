@@ -16,8 +16,7 @@ def light_sensor():
 
 def card_transport_next():
  #Thats for stopping the motor, if it runs too long (probably an Error occured or there are no more cards)
- end = ((5) + time.time())
- now = time.time()
+ timeout = ((5) + time.time())
  
  #give next card and stop dc motor when lightsensor is blocked
  stop_dc_motor = False
@@ -26,7 +25,6 @@ def card_transport_next():
   if not light_sensor():
    stop_dc_motor = True
    dc_motor_stop()
-# todo:
-  #if end > now:
-  # stop_dc_motor = True
-  # logging.info('No more cards to run') 
+  if timeout < time.time():
+   stop_dc_motor = True
+   logging.info('No more cards to run') 
