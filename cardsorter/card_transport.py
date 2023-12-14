@@ -26,8 +26,7 @@ def card_transport_next():
   if not light_sensor():
    stop_dc_motor = True
    dc_motor_stop()
-  if end > now:
-   stop_dc_motor = True
-   logging.info('No more cards to run')
- dc_motor_stop()
-  
+# todo:
+  #if end > now:
+  # stop_dc_motor = True
+  # logging.info('No more cards to run') 
