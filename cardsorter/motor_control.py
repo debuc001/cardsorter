@@ -2,8 +2,6 @@ import time
 import RPi.GPIO as GPIO
 import logging
 import pigpio
-from gpiozero import Servo
-from gpiozero.pins.pigpio import PiGPIOFactory
 
 from DFRobot_RaspberryPi_DC_Motor import THIS_BOARD_TYPE, DFRobot_DC_Motor_IIC as Board
 
@@ -12,7 +10,7 @@ board = Board(1, 0x10)
 
 #Init servo motor
 servo = pigpio.pi()
-servo_pin = 21
+servo_pin = 22
 
 
 def print_board_status():
