@@ -25,6 +25,7 @@ def card_transport_next():
   if not light_sensor():
    stop_dc_motor = True
    dc_motor_stop()
-  elif timeout < time.time():
-   stop_dc_motor = True
-   logging.info('No more cards to run') 
+  #todo:
+  #elif timeout < time.time():
+  # stop_dc_motor = True
+  # logging.info('No more cards to run') 
