@@ -29,3 +29,8 @@ def card_transport_next():
   #elif timeout < time.time():
   # stop_dc_motor = True
   # logging.info('No more cards to run') 
+
+def left_or_right(direction):
+ servo_motor_set_angle(direction)
+ time.sleep(2)
+ servo_motor_set_angle("mid")
